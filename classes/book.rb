@@ -1,11 +1,14 @@
 require_relative 'item'
 
 class Book < Item
-    def initialize(publisher, cover_state)
-        super()
+    def initialize(date, publisher, cover_state)
+        super(date)
         @publisher = publisher
-        @cober_state = cover_state
+        @cover_state = cover_state
     end
-
     
+    def can_be_archived?
+        return true if super || @cover_state == 'bad'
+        false
+    end
 end
