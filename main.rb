@@ -1,4 +1,4 @@
-require_relative 'item'
+require_relative 'classes/item'
 
 class Main
   def initialize
