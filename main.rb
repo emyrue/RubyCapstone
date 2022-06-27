@@ -17,20 +17,20 @@ class Main
     8 - Add a music album
     9 - Add a game
     10 - Exit'
-    user_input = gets.chomp
+    gets.chomp
   end
 
   def choose(choice)
     case choice.to_i
-    when 1
-    when 2
-    when 3
-    when 4
-    when 5
-    when 6
-    when 7
-    when 8
-    when 9
+    # when 1
+    # when 2
+    # when 3
+    # when 4
+    # when 5
+    # when 6
+    # when 7
+    # when 8
+    # when 9
     when 10
       @finished = true
     else
