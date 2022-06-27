@@ -26,5 +26,8 @@ class Item
   def add_genre(genre)
     @genre = genre
     genre.items.push(self) unless genre.items.include?(self)
+  def add_author(author)
+    @author = author
+    author.items << self unless author.items.include?(self)
   end
 end
