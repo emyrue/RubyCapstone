@@ -5,12 +5,12 @@ class Item
   attr_accessor :publish_date, :label, :genre
   attr_reader :author, :source
 
-  def initialize(genre, author, source, label, date)
+  def initialize(date)
     @id = SecureRandom.uuid
-    @genre = genre
-    @author = author
-    @source = source
-    @label = label
+    @genre = nil
+    @author = nil
+    @source = nil
+    @label = nil
     @publish_date = date
     @archived = false
   end
