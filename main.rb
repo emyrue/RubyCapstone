@@ -1,24 +1,49 @@
 require_relative 'item'
-require_relative 'select'
 
 class Main
   def initialize
-    @selection = Select.new
+    @finished = false
   end
 
   def menu
-    puts 'Please select an option: \n
-    1 - List all books \n
-    2 - List all music albums \n
-    3 - List all games \n
-    4 - List all genres \n
-    5 - List all labels \n
-    6 - List all authors \n
-    7 - Add a book \n
-    8 - Add a music album \n
+    puts 'Please select an option:
+    1 - List all books
+    2 - List all music albums
+    3 - List all games
+    4 - List all genres
+    5 - List all labels
+    6 - List all authors
+    7 - Add a book
+    8 - Add a music album
     9 - Add a game
     10 - Exit'
     user_input = gets.chomp
-    until 
+  end
+
+  def choose(choice)
+    case choice.to_i
+    when 1
+    when 2
+    when 3
+    when 4
+    when 5
+    when 6
+    when 7
+    when 8
+    when 9
+    when 10
+      @finished = true
+    else
+      puts 'Please enter a valid option.'
+    end
+  end
+
+  def run
+    until @finished
+      choice = menu
+      choose(choice)
+    end
   end
 end
+
+Main.new.run
