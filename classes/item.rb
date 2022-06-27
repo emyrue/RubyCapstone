@@ -23,7 +23,8 @@ class Item
     @archived = true if can_be_archived?
   end
 
-  def new_author(author)
+  def add_author(author)
     @author = author
+    author.items << self unless author.items.include?(self)
   end
 end
