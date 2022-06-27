@@ -1,5 +1,5 @@
 require_relative 'classes/item'
-class MusicAlbum:Item
+class MusicAlbum < Item
     def initialize(on_spotify,cover_state)
         @on_spotify = on_spotify
         @cover_state = cover_state
