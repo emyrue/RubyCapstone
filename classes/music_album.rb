@@ -1,5 +1,4 @@
 require_relative 'item'
-require 'securerandom'
 
 class MusicAlbum < Item
   def initialize(on_spotify)
