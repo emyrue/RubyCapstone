@@ -32,7 +32,7 @@ class App
       return puts "\n>>>> No Music  Albums available<<<" if @music.empty?
       puts
       @music.each_with_index  do |album, index|
-        puts "On Spotify: #{album[:on_spotify]} \t\t Pubished On : #{album[:publish_date]} " 
+        puts "On Spotify: #{album[:on_spotify]} " 
       end
   end 
 
@@ -62,15 +62,20 @@ end
     store_books(@books.to_json)
   end
 
-<<<<<<< HEAD
 
   def add_music_album
     music_generator = MusicGenerator.new
     object = add_item
     music = music_generator.create_music_album(object[:publish_date])
-    @music << music.music_to_json
+    music.add_label(object[:label])
+    music.add_author(object[:author])
+    music.add_source(object[:source])
+    music.add_genre(object[:genre])
+    
+    @music << music.music_to_hash
     store_music(@music.to_json)
-=======
+  end
+
   def list_all_movies
     puts(@movies.map { |movie| puts "is silent: #{movie[:silent]}" })
   end
@@ -87,7 +92,6 @@ end
     movie = movie_generator.create_movie(object[:publish_date])
     @movies << movie.movie_to_json
     store_movies(@movies.to_json)
->>>>>>> 6dfb28f9a107f1b2fe48621ad3ed3ff0f350dc75
   end
 
   def add_item
