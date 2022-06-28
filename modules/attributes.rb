@@ -16,6 +16,7 @@ module Attributes
       puts "What is the author's last name?"
       last_name = gets.chomp
       author = Author.new(first_name, last_name)
+      @authors << author
     else
       puts 'List of authors'
       author = @authors[0]
@@ -36,9 +37,12 @@ module Attributes
       puts 'What is color?'
       label_color = gets.chomp
       label = Label.new(label_name, label_color)
+      @labels << label
     else
       puts 'List of labels'
-      label = @labels[0]
+      list_all_labels
+      index = gets.chomp.to_i
+      label = @labels[index]
     end
     label
   end
@@ -54,6 +58,7 @@ module Attributes
       puts 'What is the source name?'
       source_name = gets.chomp
       source = Source.new(source_name)
+      @sources << source
     else
       puts 'List of sources'
       source = @sources[0]
@@ -72,6 +77,7 @@ module Attributes
       puts 'What is the genre name?'
       genre_name = gets.chomp
       genre = Genre.new(genre_name)
+      @genres << genre
     else
       puts 'List of genres'
       genre = @genres[0]

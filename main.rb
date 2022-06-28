@@ -28,17 +28,22 @@ class Main
   def choose(choice)
     case choice.to_i
     # when 1
+    when 1
+      @app.list_all_books
     when 2
-      @app.list_albums
+      @app.list_all_albums
     # when 3
     # when 4
     # when 5
-    # when 6
+    when 6
+      @app.list_all_labels
     # when 7
     # when 8
-    # when 9
+    when 9
+      @app.add_book
     when 10
-      @app.item_input('1')
+      @app.add_music_album
+    # when 10
     # when 11
     # when 12
     when 13
