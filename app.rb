@@ -1,3 +1,5 @@
+require_relative 'classes/music_album'
+
 class App
   def initialize
     @books = []
@@ -11,12 +13,12 @@ class App
   end
 
   def item_input(item_type)
-    print 'What Date was it Published : '
+    print 'When was this Item Published : '
     date = gets.chomp
     if item_type == '1'
       # Handle Music Albums Inputs
       print 'Can the Album be found using Spotify? [Y/N]: '
-      on_spotify = on_spotify?
+      on_spotify = gets.chomp=='Y' ||  gets.chomp=='y'
       [date, on_spotify]
     else
       print 'Not yet supported :)'
@@ -26,10 +28,11 @@ class App
   def create_item(item_type)
     if item_type == '1'
       # Handle Music Albums Inputs
-      date, on_spotify = item_input(item_type)
-      album = MusicAlbum.new(date, on_spotify)
+      dataInput = item_input(item_type)
+      album = MusicAlbum.new(dataInput[0], dataInput[1])
+      print "ID: #{album.id}\t\tGenre: #{album.genre.name} \t\t On Spotify: #{album.on_spotify} \t\t Pubished On : #{album.publish_date} "
       @music << album
-      preserve_data(@person_path, @person, 'persons')
+      preserve_data('data/music.json', @music, 'music_album')
       puts "\n> Album created successfully\n\n"
     else
       print 'Not yet supported :)'
