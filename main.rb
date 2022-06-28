@@ -27,14 +27,17 @@ class Main
 
   def choose(choice) # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
     case choice.to_i
+    # when 1
     when 1
       @app.list_all_books
-    # when 2
+    when 2
+      @app.list_all_albums
     when 3
       @app.list_all_movies
     when 4
       @app.list_all_games
-    # when 5
+    when 5
+      @app.list_all_genres
     when 6
       @app.list_all_labels
     when 7
@@ -43,7 +46,8 @@ class Main
       @app.list_all_sources
     when 9
       @app.add_book
-    # when 10
+    when 10
+      @app.add_music_album
     when 11
       @app.add_movie
     when 12
@@ -62,5 +66,4 @@ class Main
     end
   end
 end
-
 Main.new.run
