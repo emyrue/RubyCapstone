@@ -13,4 +13,15 @@ module Store
       @books = convert_to_array
     end
   end
+
+  def load_movies
+    file = File.open('./data/movies.json')
+    file_data = file.read
+    if file_data == ''
+      @movies = []
+    else
+      convert_to_array = JSON.parse(file_data, symbolize_names: true)
+      @movies = convert_to_array
+    end
+  end
 end
