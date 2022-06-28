@@ -25,7 +25,7 @@ class Main
     gets.chomp
   end
 
-  def choose(choice)
+  def choose(choice) # rubocop:disable Metrics/CyclomaticComplexity
     case choice.to_i
     when 1
       @app.list_all_books
