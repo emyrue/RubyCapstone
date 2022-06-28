@@ -5,6 +5,7 @@ require_relative 'classes/author'
 require_relative 'classes/source'
 require_relative 'modules/attributes'
 require_relative './classes/create_book'
+require_relative './classes/create_game'
 require_relative './classes/book'
 require_relative './modules/store'
 require 'json'
@@ -34,12 +35,33 @@ class App
     end
   end
 
+  def list_all_games
+    puts(@games.map { |game| puts "Genre: #{game.genre.name}. Publish Date: #{game.publish_date}. Last Played: #{game.last_played_at}. Author: #{game.author.first_name} #{game.author.last_name}" })
+  end
+
+  def list_all_authors
+    @authors.each_with_index do |author, index|
+      puts "[#{index}] [Name: #{author.first_name} #{author.last_name}]"
+    end
+  end
+
   def add_book
     book_generator = BookGenerator.new
     object = add_item
     book = book_generator.create_book(object[:publish_date])
     @books << book.book_to_json
     store_books(@books.to_json)
+  end
+
+  def add_game
+    game_generator = GameGenerator.new
+    object = add_item
+    game = game_generator.create_game(object[:publish_date])
+    game.add_author(object[:author])
+    game.add_label(object[:label])
+    game.add_source(object[:source])
+    game.add_genre(object[:genre])
+    @game << game
   end
 
   def add_item

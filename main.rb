@@ -31,17 +31,20 @@ class Main
       @app.list_all_books
     # when 2
     # when 3
-    # when 4
+    when 4
+      @app.list_all_games
     # when 5
     when 6
       @app.list_all_labels
-    # when 7
+    when 7
+      @app.list_all_authors
     # when 8
     when 9
       @app.add_book
     # when 10
     # when 11
-    # when 12
+    when 12
+      @app.add_game
     when 13
       @finished = true
     else
