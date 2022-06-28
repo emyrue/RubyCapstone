@@ -20,7 +20,7 @@ class App
     @books = load_books
     @music = []
     @movies = load_movies
-    @games = []
+    @games = load_games
     @genres = []
     @labels = []
     @authors = []
@@ -38,7 +38,7 @@ class App
   end
 
   def list_all_games
-    puts(@games.map { |game| puts "Genre: #{game.genre.name}. Publish Date: #{game.publish_date}. Last Played: #{game.last_played_at}. Author: #{game.author.first_name} #{game.author.last_name}" })
+    puts(@games.map { |game| puts "Genre: #{game[:genre]}. Publish Date: #{game[:publish_date]}. Last Played: #{game[:last_played_at]}. Author: #{game[:first_name]} #{game[:last_name]}" })
   end
 
   def list_all_authors
@@ -55,7 +55,6 @@ class App
     store_books(@books.to_json)
   end
 
-<<<<<<< HEAD
   def add_game
     game_generator = GameGenerator.new
     object = add_item
@@ -64,8 +63,10 @@ class App
     game.add_label(object[:label])
     game.add_source(object[:source])
     game.add_genre(object[:genre])
-    @game << game
-=======
+    @games << game.game_to_json
+    store_games(@games.to_json)
+  end
+
   def list_all_movies
     puts(@movies.map { |movie| puts "is silent: #{movie[:silent]}" })
   end
@@ -82,7 +83,6 @@ class App
     movie = movie_generator.create_movie(object[:publish_date])
     @movies << movie.movie_to_json
     store_movies(@movies.to_json)
->>>>>>> develop
   end
 
   def add_item
