@@ -10,6 +10,10 @@ module Store
   def store_music(obj)
     File.write('./data/music.json', obj)
   end
+  
+  def store_games(obj)
+    File.write('./data/games.json', obj)
+  end
 
   def load_books
     file = File.open('./data/books.json')
@@ -42,5 +46,18 @@ module Store
       convert_to_array = JSON.parse(file_data, symbolize_names: true)
       @music = convert_to_array
     end
+  end
+  
+  def load_games
+    file = File.open('./data/games.json')
+    file_data = file.read
+    if file_data == ''
+      array = []
+    else
+      convert_to_array = JSON.parse(file_data, symbolize_names: true)
+      array = convert_to_array
+    end
+    file.close
+    array
   end
 end

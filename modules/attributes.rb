@@ -19,7 +19,9 @@ module Attributes
       @authors << author
     else
       puts 'List of authors'
-      author = @authors[0]
+      list_all_authors
+      index = gets.chomp.to_i
+      author = @authors[index]
     end
     author
   end
