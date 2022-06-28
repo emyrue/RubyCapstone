@@ -4,7 +4,9 @@ require_relative 'classes/label'
 require_relative 'classes/author'
 require_relative 'classes/source'
 require_relative 'modules/attributes'
+require_relative './classes/movie'
 require_relative './classes/create_book'
+require_relative './classes/create_movie'
 require_relative './classes/book'
 require_relative './modules/store'
 require 'json'
@@ -16,7 +18,7 @@ class App
   def initialize
     @books = load_books
     @music = []
-    @movies = []
+    @movies = load_movies
     @games = []
     @genres = []
     @labels = []
@@ -40,6 +42,24 @@ class App
     book = book_generator.create_book(object[:publish_date])
     @books << book.book_to_json
     store_books(@books.to_json)
+  end
+
+  def list_all_movies
+    puts(@movies.map { |movie| puts "is silent: #{movie[:silent]}" })
+  end
+
+  def list_all_sources
+    @sources.each_with_index do |source, index|
+      puts "[#{index}] [Name: #{source.name}]"
+    end
+  end
+
+  def add_movie
+    movie_generator = MovieGenerator.new
+    object = add_item
+    movie = movie_generator.create_movie(object[:publish_date])
+    @movies << movie.movie_to_json
+    store_movies(@movies.to_json)
   end
 
   def add_item
