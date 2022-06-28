@@ -11,6 +11,6 @@ class MusicAlbum < Item
   end
 
   def music_to_hash
-    {genre: @genre.name, publish_date: @publish_date, label: @label.title, author:  "#{@author.first_name} #{@author.last_name}", source: @source.name, on_spotify: @on_spotify},
+    {genre: @genre.name, publish_date: @publish_date, label: @label.title, author:  "#{@author.first_name} #{@author.last_name}", source: @source.name, on_spotify: @on_spotify}
   end
 end

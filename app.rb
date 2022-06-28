@@ -32,7 +32,7 @@ class App
       return puts "\n>>>> No Music  Albums available<<<" if @music.empty?
       puts
       @music.each_with_index  do |album, index|
-        puts "On Spotify: #{album[:on_spotify]} " 
+        puts " Genre: #{album[:genre]}, Label: #{album[:label]}, Author: #{album[:author]}, Source: #{album[:source]}, On Spotify: #{album[:on_spotify]}  Publish Date: #{album[:publish_date]}," 
       end
   end 
 
@@ -71,7 +71,7 @@ end
     music.add_author(object[:author])
     music.add_source(object[:source])
     music.add_genre(object[:genre])
-    
+
     @music << music.music_to_hash
     store_music(@music.to_json)
   end
