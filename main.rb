@@ -33,7 +33,8 @@ class Main
     # when 3
     # when 4
     # when 5
-    # when 6
+    when 6
+      @app.list_all_labels
     # when 7
     # when 8
     when 9
@@ -43,7 +44,6 @@ class Main
     # when 12
     when 13
       @finished = true
-      @app.load_books
     else
       puts 'Please enter a valid option.'
     end
