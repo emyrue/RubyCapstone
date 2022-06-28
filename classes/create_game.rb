@@ -8,11 +8,7 @@ class GameGenerator
       puts 'Please enter a valid option: '
       multiplayer = gets.chomp.downcase
     end
-    if multiplayer == 'y'
-      multiplayer = true
-    else
-      multiplayer = false
-    end
+    multiplayer = multiplayer == 'y'
     puts 'When was this game last played? (Format yyyy/mm/dd)'
     last_played_at = gets.chomp
     Game.new(date, multiplayer, last_played_at)

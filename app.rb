@@ -38,7 +38,9 @@ class App
   end
 
   def list_all_games
-    puts(@games.map { |game| puts "Genre: #{game[:genre]}. Publish Date: #{game[:publish_date]}. Last Played: #{game[:last_played_at]}. Author: #{game[:first_name]} #{game[:last_name]}" })
+    puts(@games.map do |game|
+           puts "Genre: #{game[:genre]}. Publish Date: #{game[:publish_date]}. Multiplayer: #{game[:multiplayer]}"
+         end)
   end
 
   def list_all_authors

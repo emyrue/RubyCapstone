@@ -12,6 +12,7 @@ class Game < Item
   end
 
   def game_to_json
-    { multiplayer: @multiplayer, publish_date: @publish_date, first_name: @author.first_name, last_name: @author.last_name, genre: @genre.name}
+    { multiplayer: @multiplayer, publish_date: @publish_date, first_name: @author.first_name,
+      last_name: @author.last_name, genre: @genre.name }
   end
 end
