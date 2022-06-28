@@ -27,20 +27,23 @@ class Main
 
   def choose(choice)
     case choice.to_i
-    # when 1
-    # when 2
+    when 1 
+      @app.list_all_books
+    # when 2 
     # when 3
     # when 4
     # when 5
     # when 6
     # when 7
     # when 8
-    # when 9
+    when 9
+      @app.add_book
     # when 10
     # when 11
     # when 12
     when 13
       @finished = true
+      @app.load_books
     else
       puts 'Please enter a valid option.'
     end
