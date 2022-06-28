@@ -26,7 +26,7 @@ describe Author do
     end
 
     it 'Returns correct hash' do
-      hash = { first_name: 'Emily', last_name: 'Robertson'}
+      hash = { first_name: 'Emily', last_name: 'Robertson' }
       expect(@author.author_to_hash).to eq hash
     end
   end

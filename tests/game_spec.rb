@@ -19,7 +19,8 @@ describe Game do
     end
 
     it 'Game to hash method works correctly' do
-      hash = {multiplayer: true, publish_date: '2022/06/28', first_name: 'Emily', last_name: 'Robertson', genre: 'Action'}
+      hash = { multiplayer: true, publish_date: '2022/06/28', first_name: 'Emily', last_name: 'Robertson',
+               genre: 'Action' }
       @game.add_author(@author)
       @game.add_genre(@genre)
       expect(@game.game_to_hash).to eq hash
