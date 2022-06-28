@@ -1,7 +1,7 @@
 require_relative 'item'
 
 class MusicAlbum < Item
-  def initialize(on_spotify)
+  def initialize(date,on_spotify)
     @on_spotify = on_spotify
     super(date)
   end
