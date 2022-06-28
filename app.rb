@@ -7,11 +7,8 @@ require_relative 'classes/source'
 require_relative 'modules/attributes'
 require_relative './classes/movie'
 require_relative './classes/create_book'
-<<<<<<< HEAD
 require_relative './classes/create_music'
-=======
 require_relative './classes/create_movie'
->>>>>>> 6dfb28f9a107f1b2fe48621ad3ed3ff0f350dc75
 require_relative './classes/book'
 require_relative './modules/store'
 require 'json'
@@ -22,7 +19,7 @@ class App
 
   def initialize
     @books = load_books
-    @music = []
+    @music = load_music
     @movies = load_movies
     @games = []
     @genres = []
