@@ -25,7 +25,7 @@ class Main
     gets.chomp
   end
 
-  def choose(choice) # rubocop:disable Metrics/CyclomaticComplexity
+  def choose(choice) # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
     case choice.to_i
     # when 1
     when 1
@@ -62,5 +62,4 @@ class Main
     end
   end
 end
-
 Main.new.run

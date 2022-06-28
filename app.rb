@@ -29,20 +29,23 @@ class App
   end
 
   def list_all_albums
-      return puts "\n>>>> No Music  Albums available<<<" if @music.empty?
-      puts
-      @music.each_with_index  do |album, index|
-        puts " Genre: #{album[:genre]}, Label: #{album[:label]}, Author: #{album[:author]}, Source: #{album[:source]}, On Spotify: #{album[:on_spotify]}  Publish Date: #{album[:publish_date]}," 
-      end
-  end 
+    return puts "\n>>>> No Music  Albums available<<<" if @music.empty?
+
+    puts
+    @music.each_with_index do |album, _index|
+      puts " Genre: #{album[:genre]} Label: #{album[:label]}. Author: #{album[:author]}. Source: #{album[:source]}. On Spotify: #{album[:on_spotify]} .  Publish Date: #{album[:publish_date]}." # rubocop:disable Layout/LineLength
+    end
+  end
 
   def list_all_genres
     return puts "\n>>>> No Genres  available<<<" if @genres.empty?
+
     puts
-    @genres.each_with_index  do |genre, index|
-       puts "[#{index}] Genre: #{genre.name}" 
+    @genres.each_with_index do |genre, index|
+      puts "[#{index}] Genre: #{genre.name}"
     end
-end 
+  end
+
   def list_all_books
     puts(@books.map { |book| puts "Publisher: #{book[:publisher]}. Cover State: #{book[:cover_state]}" })
   end
@@ -53,7 +56,6 @@ end
     end
   end
 
-
   def add_book
     book_generator = BookGenerator.new
     object = add_item
@@ -61,7 +63,6 @@ end
     @books << book.book_to_json
     store_books(@books.to_json)
   end
-
 
   def add_music_album
     music_generator = MusicGenerator.new

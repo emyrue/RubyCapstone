@@ -22,7 +22,6 @@ module Store
     end
   end
 
-
   def load_movies
     file = File.open('./data/movies.json')
     file_data = file.read
