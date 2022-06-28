@@ -106,7 +106,9 @@ class App
   end
 
   def list_all_movies
-    puts(@movies.map { |movie| puts "Author: #{movie[:first_name]} #{movie[:last_name]} Genre: #{movie[:genre]}  is silent: #{movie[:silent]}" })
+    puts(@movies.map do |movie|
+           puts "Author: #{movie[:first_name]} #{movie[:last_name]} Genre: #{movie[:genre]} silent?: #{movie[:silent]}"
+         end)
   end
 
   def list_all_sources
