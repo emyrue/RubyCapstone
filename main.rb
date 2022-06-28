@@ -1,22 +1,27 @@
 require_relative 'classes/item'
+require_relative 'app'
 
 class Main
   def initialize
     @finished = false
+    @app = App.new
   end
 
   def menu
     puts 'Please select an option:
     1 - List all books
     2 - List all music albums
-    3 - List all games
-    4 - List all genres
-    5 - List all labels
-    6 - List all authors
-    7 - Add a book
-    8 - Add a music album
-    9 - Add a game
-    10 - Exit'
+    3 - List all movies
+    4 - List all games
+    5 - List all genres
+    6 - List all labels
+    7 - List all authors
+    8 - List all sources
+    9 - Add a book
+    10 - Add a music album
+    11 - Add a movie
+    12 - Add a game
+    13 - Exit'
     gets.chomp
   end
 
@@ -31,7 +36,10 @@ class Main
     # when 7
     # when 8
     # when 9
-    when 10
+    # when 10
+    # when 11
+    # when 12
+    when 13
       @finished = true
     else
       puts 'Please enter a valid option.'
