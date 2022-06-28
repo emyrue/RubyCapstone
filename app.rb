@@ -25,7 +25,6 @@ class App
     @sources = load_sources
     @movies = load_movies
     @games = load_games
- 
   end
 
   def list_all_books
@@ -39,6 +38,7 @@ class App
   end
 
   def list_all_games
+    @games = load_games
     puts(@games.map do |game|
            puts "Genre: #{game[:genre]}. Publish Date: #{game[:publish_date]}. Multiplayer: #{game[:multiplayer]}"
          end)
@@ -46,7 +46,7 @@ class App
 
   def list_all_authors
     @authors.each_with_index do |author, index|
-      puts "[#{index}] [Name: #{author.first_name} #{author.last_name}]"
+      puts "[#{index}] [Name: #{author[:first_name]} #{author[:last_name]}]"
     end
   end
 
@@ -61,6 +61,7 @@ class App
   def add_game
     game_generator = GameGenerator.new
     object = add_item
+    puts object.inspect
     game = game_generator.create_game(object[:publish_date])
     game.add_author(object[:author])
     game.add_label(object[:label])
@@ -76,7 +77,7 @@ class App
 
   def list_all_sources
     @sources.each_with_index do |source, index|
-      puts "[#{index}] [Name: #{source.name}]"
+      puts "[#{index}] [Name: #{source[:name]}]"
     end
   end
 
@@ -95,6 +96,6 @@ class App
     label = item_label
     source = item_source
     genre = item_genre
-    item = { publish_date: publish_date, author: author, label: label, source: source, genre: genre }
+    { publish_date: publish_date, author: author, label: label, source: source, genre: genre }
   end
 end
