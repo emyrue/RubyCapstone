@@ -52,6 +52,13 @@ class App
     end
   end
 
+  def add_movie
+    movie_generator = MovieGenerator.new
+    object = add_item
+    movie = movie_generator.create_movie(object[:silent])
+    store_books(@movies.to_json)
+  end
+
   def add_item
     puts 'When was this item published?'
     publish_date = gets.chomp
