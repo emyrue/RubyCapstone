@@ -63,7 +63,9 @@ module Attributes
       @sources << source
     else
       puts 'List of sources'
-      source = @sources[0]
+      list_all_sources
+      index = gets.chomp.to_i
+      source = @sources[index]
     end
     source
   end
