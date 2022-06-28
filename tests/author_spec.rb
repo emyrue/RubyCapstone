@@ -24,5 +24,10 @@ describe Author do
       @book.add_author(@author)
       expect(@author.items).not_to be_empty
     end
+
+    it 'Returns correct hash' do
+      hash = { first_name: 'Emily', last_name: 'Robertson'}
+      expect(@author.author_to_hash).to eq hash
+    end
   end
 end
