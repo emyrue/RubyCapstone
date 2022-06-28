@@ -21,6 +21,10 @@ class App
     puts(@books.map { |book| puts "Publisher: #{book[:publisher]}. Cover State: #{book[:cover_state]}" })
   end
 
+  def list_all_labels
+    puts(@labels.map { |label| puts "Name: #{label[:title]}. Color: #{label[:color]}" })
+  end
+
   def add_book
     book_generator = BookGenerator.new
     book = book_generator.create_book
