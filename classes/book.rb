@@ -11,7 +11,7 @@ class Book < Item
     super || @cover_state == 'bad'
   end
 
-  def book_to_json
+  def book_to_hash
     { publisher: @publisher, cover_state: @cover_state }
   end
 end

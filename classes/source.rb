@@ -1,8 +1,7 @@
 require 'securerandom'
 
 class Source
-  attr_accessor :name
-  attr_reader :items
+  attr_accessor :name, :items
 
   def initialize(name)
     @id = SecureRandom.uuid
@@ -13,5 +12,9 @@ class Source
   def add_item(item)
     @items << item
     item.add_source(self)
+  end
+
+  def source_to_hash
+    { name: @name }
   end
 end

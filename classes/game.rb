@@ -12,7 +12,21 @@ class Game < Item
   end
 
   def game_to_hash
-    { multiplayer: @multiplayer, publish_date: @publish_date, first_name: @author.first_name,
-      last_name: @author.last_name, genre: @genre.name }
+    if defined?(@author[:last_name])
+      f_name = @author[:first_name]
+      l_name = @author[:last_name]
+    else
+      f_name = @author.first_name
+      l_name = @author.last_name
+    end
+
+    gen = if defined?(@genre[:name])
+            @genre[:name]
+          else
+            @genre.name
+          end
+
+    { multiplayer: @multiplayer, publish_date: @publish_date, first_name: f_name,
+      last_name: l_name, genre: gen }
   end
 end
