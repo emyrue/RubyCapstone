@@ -14,4 +14,8 @@ class Label
     @items << item
     item.add_label(self)
   end
+
+  def label_to_hash
+    { title: @title, color: @color }
+  end
 end

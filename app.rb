@@ -18,10 +18,10 @@ class App
     @music = []
     @movies = []
     @games = []
-    @genres = []
-    @labels = []
-    @authors = []
-    @sources = []
+    @genres = load_genres
+    @labels = load_labels
+    @authors = load_authors
+    @sources = load_sources
   end
 
   def list_all_books
@@ -30,7 +30,7 @@ class App
 
   def list_all_labels
     @labels.each_with_index do |label, index|
-      puts "[#{index}] [Name: #{label.title}. Color: #{label.color}"
+      puts "[#{index}] [Name: #{label[:title]} Color: #{label[:color]}"
     end
   end
 
@@ -38,7 +38,7 @@ class App
     book_generator = BookGenerator.new
     object = add_item
     book = book_generator.create_book(object[:publish_date])
-    @books << book.book_to_json
+    @books << book.book_to_hash
     store_books(@books.to_json)
   end
 
@@ -49,6 +49,6 @@ class App
     label = item_label
     source = item_source
     genre = item_genre
-    { publish_date: publish_date, author: author, label: label, source: source, genre: genre }
+    item = { publish_date: publish_date, author: author, label: label, source: source, genre: genre }
   end
 end
