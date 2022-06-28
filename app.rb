@@ -40,6 +40,7 @@ class App
 
   def list_all_genres
     return puts "\n>>>> No Genres  available<<<" if @genres.empty?
+
     puts
     @genres.each_with_index do |genre, index|
       puts "[#{index}] Genre: #{genre.name}"

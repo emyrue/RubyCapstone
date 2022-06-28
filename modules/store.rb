@@ -1,4 +1,4 @@
-module Store
+module Store # rubocop:disable Metrics/ModuleLength
   def store_books(obj)
     File.write('./data/books.json', obj)
   end
