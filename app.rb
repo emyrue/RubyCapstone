@@ -65,7 +65,7 @@ class App
     game.add_label(object[:label])
     game.add_source(object[:source])
     game.add_genre(object[:genre])
-    @games << game.game_to_json
+    @games << game.game_to_hash
     store_games(@games.to_json)
   end
 
