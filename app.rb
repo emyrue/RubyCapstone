@@ -14,7 +14,7 @@ class App
     @games = []
     @genres = []
     @labels = []
-    @authors = [Author.new('Emily', 'Robertson')]
+    @authors = []
     @sources = []
   end
 
@@ -24,7 +24,8 @@ class App
     author = item_author
     label = item_label
     source = item_source
-    return {publish_date: publish_date, author: author, label: label, source: source}
+    genre = item_genre
+    return {publish_date: publish_date, author: author, label: label, source: source, genre: genre}
   end
 
   def list_labels

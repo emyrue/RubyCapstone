@@ -61,4 +61,21 @@ module Attributes
     return source
   end
 
+  def item_genre
+    puts "Would you like to (1)add a new genre or (2)choose a genre that is already on the list?"
+    choice = gets.chomp.to_i
+    while choice != 1 && choice != 2
+      puts "Please enter a valid option: "
+      choice = gets.chomp.to_i
+    end
+    if choice == 1
+      puts "What is the genre name?"
+      genre_name = gets.chomp
+      genre = Genre.new(genre_name)
+    else
+      puts "List of genres"
+      genre = @genres[0]
+    end
+    return genre
+  end
 end
