@@ -42,6 +42,16 @@ class App
     store_books(@books.to_json)
   end
 
+  def list_all_movies
+    puts(@movies.map { |movie| puts "is silent: #{movie[:silent]}" })
+  end
+
+  def list_all_sources
+    @sources.each_with_index do |source, index|
+      puts "[#{index}] [Name: #{source.name}]"
+    end
+  end
+
   def add_item
     puts 'When was this item published?'
     publish_date = gets.chomp
