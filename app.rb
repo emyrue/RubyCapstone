@@ -33,8 +33,8 @@ class App
     return puts "\n>>>> No Music  Albums available<<<" if @music.empty?
 
     puts
-    @music.each_with_index do |album, _index|
-      puts "[#{_index}]- Genre: #{album[:genre]} Label: #{album[:label]}. Author: #{album[:author]}. Source: #{album[:source]}. On Spotify: #{album[:on_spotify]} .  Publish Date: #{album[:publish_date]}." # rubocop:disable Layout/LineLength
+    @music.each_with_index do |album, index|
+      puts "[#{index}]- Genre: #{album[:genre]} Label: #{album[:label]}. Author: #{album[:author]}. Source: #{album[:source]}. On Spotify: #{album[:on_spotify]} .  Publish Date: #{album[:publish_date]}." # rubocop:disable Layout/LineLength
     end
   end
 
