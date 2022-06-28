@@ -22,6 +22,11 @@ class App
     puts "When was this item published?"
     publish_date = gets.chomp
     author = user_author
-    return {'publish_date' => publish_date, 'author' => author}
+    label = item_label
+    return {publish_date: publish_date, author: author, label: label}
+  end
+
+  def list_labels
+
   end
 end
