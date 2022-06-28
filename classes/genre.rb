@@ -15,7 +15,7 @@ class Genre
     item.add_genre(self)
   end
 
-  def genre_to_json
-    { id: @id, name: @name }
+  def genre_to_hash
+    { name: @name }
   end
 end

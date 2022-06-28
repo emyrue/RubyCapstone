@@ -21,12 +21,12 @@ class App
   def initialize
     @books = load_books
     @music = load_music
+    @genres = load_genres
+    @labels = load_labels
+    @authors = load_authors
+    @sources = load_sources
     @movies = load_movies
     @games = load_games
-    @genres = []
-    @labels = []
-    @authors = []
-    @sources = []
   end
 
   def list_all_albums
@@ -52,11 +52,12 @@ class App
 
   def list_all_labels
     @labels.each_with_index do |label, index|
-      puts "[#{index}] [Name: #{label.title}. Color: #{label.color}"
+      puts "[#{index}] [Name: #{label[:title]} Color: #{label[:color]}"
     end
   end
 
   def list_all_games
+    @games = load_games
     puts(@games.map do |game|
            puts "Genre: #{game[:genre]}. Publish Date: #{game[:publish_date]}. Multiplayer: #{game[:multiplayer]}"
          end)
@@ -64,7 +65,7 @@ class App
 
   def list_all_authors
     @authors.each_with_index do |author, index|
-      puts "[#{index}] [Name: #{author.first_name} #{author.last_name}]"
+      puts "[#{index}] [Name: #{author[:first_name]} #{author[:last_name]}]"
     end
   end
 
@@ -72,7 +73,7 @@ class App
     book_generator = BookGenerator.new
     object = add_item
     book = book_generator.create_book(object[:publish_date])
-    @books << book.book_to_json
+    @books << book.book_to_hash
     store_books(@books.to_json)
   end
 
@@ -92,6 +93,7 @@ class App
   def add_game
     game_generator = GameGenerator.new
     object = add_item
+    puts object.inspect
     game = game_generator.create_game(object[:publish_date])
     game.add_author(object[:author])
     game.add_label(object[:label])
@@ -107,7 +109,7 @@ class App
 
   def list_all_sources
     @sources.each_with_index do |source, index|
-      puts "[#{index}] [Name: #{source.name}]"
+      puts "[#{index}] [Name: #{source[:name]}]"
     end
   end
 

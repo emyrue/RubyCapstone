@@ -1,9 +1,11 @@
 require_relative '../classes/author'
 require_relative '../classes/label'
 require_relative '../classes/source'
+require_relative 'store'
 
 module Attributes
-  def item_author
+  include Store
+  def item_author # rubocop:disable Metrics/MethodLength
     puts 'Would you like to (1)add a new author or (2)choose an author that is already on the list?'
     choice = gets.chomp.to_i
     while choice != 1 && choice != 2
@@ -16,7 +18,8 @@ module Attributes
       puts "What is the author's last name?"
       last_name = gets.chomp
       author = Author.new(first_name, last_name)
-      @authors << author
+      @authors << author.author_to_hash
+      store_authors(@authors.to_json)
     else
       puts 'List of authors'
       list_all_authors
@@ -26,7 +29,7 @@ module Attributes
     author
   end
 
-  def item_label
+  def item_label # rubocop:disable Metrics/MethodLength
     puts 'Would you like to (1)add a new label or (2)choose a label that is already on the list?'
     choice = gets.chomp.to_i
     while choice != 1 && choice != 2
@@ -39,7 +42,8 @@ module Attributes
       puts 'What is color?'
       label_color = gets.chomp
       label = Label.new(label_name, label_color)
-      @labels << label
+      @labels << label.label_to_hash
+      store_labels(@labels.to_json)
     else
       puts 'List of labels'
       list_all_labels
@@ -60,7 +64,8 @@ module Attributes
       puts 'What is the source name?'
       source_name = gets.chomp
       source = Source.new(source_name)
-      @sources << source
+      @sources << source.source_to_hash
+      store_sources(@sources.to_json)
     else
       puts 'List of sources'
       list_all_sources
@@ -81,7 +86,8 @@ module Attributes
       puts 'What is the genre name?'
       genre_name = gets.chomp
       genre = Genre.new(genre_name)
-      @genres << genre
+      @genres << genre.genre_to_hash
+      store_genres(@genres.to_json)
     else
       puts 'List of genres'
       genre = @genres[0]
