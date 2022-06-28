@@ -4,7 +4,9 @@ require_relative 'classes/label'
 require_relative 'classes/author'
 require_relative 'classes/source'
 require_relative 'modules/attributes'
+require_relative './classes/movie'
 require_relative './classes/create_book'
+require_relative './classes/create_movie'
 require_relative './classes/book'
 require_relative './modules/store'
 require 'json'
@@ -55,8 +57,9 @@ class App
   def add_movie
     movie_generator = MovieGenerator.new
     object = add_item
-    movie = movie_generator.create_movie(object[:silent])
-    store_books(@movies.to_json)
+    movie = movie_generator.create_movie(object[:publish_date])
+    @movies << movie.movie_to_json
+    store_movies(@movies.to_json)
   end
 
   def add_item

@@ -1,6 +1,9 @@
 module Store
   def store_books(obj)
     File.write('./data/books.json', obj)
+  end
+
+  def store_movies(obj)
     File.write('./data/movies.json', obj)
   end
 
