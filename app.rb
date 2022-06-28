@@ -16,7 +16,7 @@ class App
   def initialize
     @books = load_books
     @music = []
-    @movies = []
+    @movies = load_movies
     @games = []
     @genres = []
     @labels = []
