@@ -7,11 +7,8 @@ require_relative 'classes/source'
 require_relative 'modules/attributes'
 require_relative './classes/movie'
 require_relative './classes/create_book'
-<<<<<<< HEAD
 require_relative './classes/create_music'
-=======
 require_relative './classes/create_game'
->>>>>>> 7adbf3905425d5432105e04defc4f5d6b03393bf
 require_relative './classes/create_movie'
 require_relative './classes/book'
 require_relative './modules/store'
@@ -91,7 +88,8 @@ class App
 
     @music << music.music_to_hash
     store_music(@music.to_json)
-  end 
+  end
+
   def add_game
     game_generator = GameGenerator.new
     object = add_item

@@ -10,7 +10,7 @@ module Store
   def store_music(obj)
     File.write('./data/music.json', obj)
   end
-  
+
   def store_games(obj)
     File.write('./data/games.json', obj)
   end
@@ -47,7 +47,7 @@ module Store
       @music = convert_to_array
     end
   end
-  
+
   def load_games
     file = File.open('./data/games.json')
     file_data = file.read
