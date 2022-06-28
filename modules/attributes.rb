@@ -56,12 +56,13 @@ module Attributes
     end
     if choice == 1
       puts 'What is the source name?'
-      source_name = gets.chomp
+      source_name = gets.chomp.to_i
       source = Source.new(source_name)
       @sources << source
     else
       puts 'List of sources'
-      source = @sources[0]
+      list_all_sources
+      source = @sources[index]
     end
     source
   end
