@@ -12,7 +12,9 @@ class App
     @sources = []
   end
 
-
+  def list_all_books
+    puts(@books.map { |book| puts "Title: #{book[:publisher]}. Author: #{book[:cover_state]}" })
+  end
 
   def add_book
     book_generator = BookGenerator.new
@@ -20,5 +22,5 @@ class App
     @books << book.book_to_json
   end
 
-
+  
 end
