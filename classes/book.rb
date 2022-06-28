@@ -12,6 +12,6 @@ class Book < Item
   end
 
   def book_to_json
-    { publisher: @publisher, cover_state: @acover_state }
+    { publisher: @publisher, cover_state: @cover_state }
   end
 end
