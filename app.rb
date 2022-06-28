@@ -102,10 +102,11 @@ class App
     game.add_genre(object[:genre])
     @games << game.game_to_hash
     store_games(@games.to_json)
+    puts 'Game created successfully'
   end
 
   def list_all_movies
-    puts(@movies.map { |movie| puts "is silent: #{movie[:silent]}" })
+    puts(@movies.map { |movie| puts "Author: #{movie[:first_name]} #{movie[:last_name]} Genre: #{movie[:genre]}  is silent: #{movie[:silent]}" })
   end
 
   def list_all_sources
@@ -118,7 +119,11 @@ class App
     movie_generator = MovieGenerator.new
     object = add_item
     movie = movie_generator.create_movie(object[:publish_date])
-    @movies << movie.movie_to_json
+    movie.add_author(object[:author])
+    movie.add_label(object[:label])
+    movie.add_source(object[:source])
+    movie.add_genre(object[:genre])
+    @movies << movie.movie_to_hash
     store_movies(@movies.to_json)
   end
 

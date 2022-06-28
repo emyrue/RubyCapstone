@@ -10,7 +10,22 @@ class Movie < Item
     super || @silent
   end
 
-  def movie_to_json
-    { silent: @silent }
+  def movie_to_hash
+    if defined?(@author[:last_name])
+      f_name = @author[:first_name]
+      l_name = @author[:last_name]
+    else
+      f_name = @author.first_name
+      l_name = @author.last_name
+    end
+
+    gen = if defined?(@genre[:name])
+            @genre[:name]
+          else
+            @genre.name
+          end
+
+    { silent: @silent, first_name: f_name,
+      last_name: l_name, genre: gen }
   end
 end
