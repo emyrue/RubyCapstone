@@ -30,17 +30,20 @@ class Main
     when 1
       @app.list_all_books
     # when 2
-    # when 3
+    when 3
+      @app.list_all_movies
     # when 4
     # when 5
     when 6
       @app.list_all_labels
     # when 7
-    # when 8
+    when 8
+      @app.list_all_sources
     when 9
       @app.add_book
     # when 10
-    # when 11
+    when 11
+      @app.add_movie
     # when 12
     when 13
       @finished = true
