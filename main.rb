@@ -27,9 +27,9 @@ class Main
 
   def choose(choice)
     case choice.to_i
-    when 1 
+    when 1
       @app.list_all_books
-    # when 2 
+    # when 2
     # when 3
     # when 4
     # when 5

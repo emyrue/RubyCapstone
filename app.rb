@@ -22,7 +22,6 @@ class App
     @labels = []
     @authors = []
     @sources = []
-
   end
 
   def list_all_books
@@ -42,7 +41,7 @@ class App
     @books << book.book_to_json
     store_books(@books.to_json)
   end
-  
+
   def add_item
     puts 'When was this item published?'
     publish_date = gets.chomp
@@ -52,5 +51,4 @@ class App
     genre = item_genre
     { publish_date: publish_date, author: author, label: label, source: source, genre: genre }
   end
-
 end
