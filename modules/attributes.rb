@@ -22,7 +22,9 @@ module Attributes
       store_authors(@authors.to_json)
     else
       puts 'List of authors'
-      author = @authors[0]
+      list_all_authors
+      index = gets.chomp.to_i
+      author = @authors[index]
     end
     author
   end
@@ -67,7 +69,9 @@ module Attributes
       store_sources(@sources.to_json)
     else
       puts 'List of sources'
-      source = @sources[0]
+      list_all_sources
+      index = gets.chomp.to_i
+      source = @sources[index]
     end
     source
   end

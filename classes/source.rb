@@ -1,4 +1,4 @@
-require 'Securerandom'
+require 'securerandom'
 
 class Source
   attr_accessor :name
