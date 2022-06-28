@@ -10,7 +10,6 @@ class App
     @sources = []
   end
 
-
   def item_input(item_type)
     print 'What Date was it Published : '
     date = gets.chomp
@@ -19,6 +18,19 @@ class App
       print 'Can the Album be found using Spotify? [Y/N]: '
       on_spotify = on_spotify?
       [date, on_spotify]
+    else
+      print 'Not yet supported :)'
+    end
+  end
+
+  def create_item(item_type)
+    if item_type == '1'
+      # Handle Music Albums Inputs
+      date, on_spotify = item_input(item_type)
+      album = MusicAlbum.new(date, on_spotify)
+      @music << album
+      preserve_data(@person_path, @person, 'persons')
+      puts "\n> Album created successfully\n\n"
     else
       print 'Not yet supported :)'
     end

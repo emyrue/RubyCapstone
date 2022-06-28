@@ -9,4 +9,8 @@ class MusicAlbum < Item
   def can_be_archived
     super && @on_spotify
   end
+
+  def to_json
+    { date: @publish_date, on_spotify: @on_spotify }
+  end
 end
