@@ -34,7 +34,7 @@ class App
 
     puts
     @music.each_with_index do |album, _index|
-      puts " Genre: #{album[:genre]} Label: #{album[:label]}. Author: #{album[:author]}. Source: #{album[:source]}. On Spotify: #{album[:on_spotify]} .  Publish Date: #{album[:publish_date]}." # rubocop:disable Layout/LineLength
+      puts "[#{_index}]- Genre: #{album[:genre]} Label: #{album[:label]}. Author: #{album[:author]}. Source: #{album[:source]}. On Spotify: #{album[:on_spotify]} .  Publish Date: #{album[:publish_date]}." # rubocop:disable Layout/LineLength
     end
   end
 
@@ -43,7 +43,7 @@ class App
 
     puts
     @genres.each_with_index do |genre, index|
-      puts "[#{index}] Genre: #{genre.name}"
+      puts "[#{index}] Genre: #{genre[:name]}"
     end
   end
 

@@ -36,7 +36,8 @@ class Main
       @app.list_all_movies
     when 4
       @app.list_all_games
-    # when 5
+    when 5
+      @app.list_all_genres
     when 6
       @app.list_all_labels
     when 7
