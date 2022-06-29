@@ -130,7 +130,7 @@ class App
   end
 
   def add_item
-    puts 'When was this item published?'
+    puts 'When was this item published? (Format yyyy/mm/dd)'
     publish_date = gets.chomp
     author = item_author
     label = item_label
